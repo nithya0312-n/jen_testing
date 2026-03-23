@@ -2,15 +2,16 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+        stage('Clone Repository') {
             steps {
-                git 'git@github.com:nithya0312-n/test_jenkins.git'
+                git branch: 'main', 
+                    url: 'git@github.com:nithya0312-n/test_jenkins.git'
             }
         }
 
-        stage('Run Python') {
+        stage('Run Python Script') {
             steps {
-                sh 'python3 factorial.py'
+                sh 'python3 app.py'
             }
         }
     }
