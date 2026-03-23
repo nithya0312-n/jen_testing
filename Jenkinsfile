@@ -5,7 +5,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/nithya0312-n/test_jenkins.git',
+                    url: 'https://github.com/nithya0312-n/jen_testing.git',
                     credentialsId: 'admin-neww'
             }
         }
