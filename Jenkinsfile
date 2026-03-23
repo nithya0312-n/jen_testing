@@ -4,23 +4,14 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Pull code from your GitHub repo
-                git branch: 'main', url: 'https://github.com/nithya0312-n/jen_testing.git'
+                git 'git@github.com:nithya0312-n/test_jenkins.git'
             }
         }
 
-        stage('Run Python Script') {
+        stage('Run Python') {
             steps {
-                // Run using system-installed Python 3.10.12
-                sh 'factorial.py'
+                sh 'python3 factorial.py'
             }
-        }
-    }
-
-    post {
-        always {
-            echo 'Pipeline finished!'
         }
     }
 }
-
