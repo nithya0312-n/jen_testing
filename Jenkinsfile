@@ -2,19 +2,8 @@ pipeline {
     agent any
 
     tools {
-        jdk 'Java_17'
-    }
-
-    stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'main', url: 'https://github.com/nithya0312-n/jen_testing.git'
-            }
-pipeline {
-    agent any
-
-    tools {
-        jdk 'Java_17'
+        // Make sure Python is installed and configured in Jenkins
+        python 'Python_3'
     }
 
     stages {
@@ -24,16 +13,10 @@ pipeline {
             }
         }
 
-        stage('Compile') {
+        stage('Run Script') {
             steps {
-                sh 'file1.java'
-            }
-        }
-
-        stage('Run') {
-            steps {
-                // Pass a name as input via environment variable
-                sh 'echo "Nithya" | java Greeting'
+                // Run the Python script directly
+                sh 'file1.py'
             }
         }
     }
@@ -41,21 +24,6 @@ pipeline {
     post {
         always {
             echo 'Pipeline finished!'
-        }
-    }
-}
-        }
-
-        stage('Compile') {
-            steps {
-                sh 'javac Greeting.java'
-            }
-        }
-
-        stage('Run') {
-            steps {
-                sh 'java Greeting'
-            }
         }
     }
 }
