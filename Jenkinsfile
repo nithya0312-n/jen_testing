@@ -1,22 +1,18 @@
 pipeline {
     agent any
 
-    tools {
-        // Make sure Python is installed and configured in Jenkins
-        python 'Python_3'
-    }
-
     stages {
         stage('Checkout') {
             steps {
+                // Pull code from your GitHub repo
                 git branch: 'main', url: 'https://github.com/nithya0312-n/jen_testing.git'
             }
         }
 
-        stage('Run Script') {
+        stage('Run Python Script') {
             steps {
-                // Run the Python script directly
-                sh 'file1.py'
+                // Run using system-installed Python 3.10.12
+                sh 'factorial.py'
             }
         }
     }
